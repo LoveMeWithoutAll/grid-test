@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "vue": "^2.5.17",
+    "vue-gh-corners": "^2.0.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.19",
     "vuex": "^3.0.1",
