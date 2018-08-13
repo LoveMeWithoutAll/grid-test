@@ -26,12 +26,15 @@ export default {
   methods: {
     ...mapMutations({increaseNum: types.NEXT_NUM}),
     sqrt: (v) => Math.sqrt(v.length),
-    getValue (idx, kdx) {
-      return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
+    getIndex (idx, kdx) {
+      return (this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx
     },
-    checkIt (v) {
+    getValue (idx, kdx) {
+      return this.numbers[this.getIndex(idx, kdx)]
+    },
+    checkIt (idx, kdx) {
       if (!this.started) return
-      if (this.nextNum === v) this.increaseNum()
+      if (this.nextNum === this.getValue(idx, kdx)) this.increaseNum()
     }
   }
 }
