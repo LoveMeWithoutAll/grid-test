@@ -2,11 +2,11 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <h1 class="display-3">Grid test</h1>
-        <h2 class="title">concentration training</h2>
-        <v-spacer class="mb-4"></v-spacer>        
+        <h1 class="display-3 mb-2">Grid test</h1>
+        <h2 class="title mb-2">concentration training</h2>        
+        <blockquote class="mb-4">First, find 0 . Then, next.</blockquote>
         <table>
-          <tbody>            
+          <tbody>
             <tr v-for="idx in sqrt(numbers)" :key="idx">
               <td v-for="kdx in sqrt(numbers)" :key="kdx">
                 <v-card>
@@ -19,10 +19,8 @@
           </tbody>
         </table>
         <v-spacer class="mb-4"></v-spacer>
-          <h3>Next</h3>
-          <h3 class="display-2">{{ nextNum }}</h3>
-        <v-spacer class="mb-4"></v-spacer>
-        <blockquote>First, find 0 . Then, next.</blockquote>
+        <h3>Next</h3>
+        <h3 class="display-2">{{ nextNum }}</h3>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
