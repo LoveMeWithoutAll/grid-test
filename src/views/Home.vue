@@ -3,12 +3,13 @@
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <h1 class="display-3 mb-2">Grid test</h1>
-        <h2 class="title mb-2">concentration training</h2>        
+        <h2 class="title mb-2">concentration training</h2>
         <blockquote class="mb-4">First, find 0 . Then, next.</blockquote>
         <grid></grid>
         <v-spacer class="mb-4"></v-spacer>
         <h3>Next</h3>
         <h3 class="display-2">{{ nextNum }}</h3>
+        <timer></timer>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
@@ -17,10 +18,12 @@
 <script>
 import { mapFields } from 'vuex-map-fields'
 import Grid from '@/components/Grid'
+import Timer from '@/components/Timer'
 
 export default {
   components: {
-    Grid
+    Grid,
+    Timer
   },
   computed: {
     ...mapFields(['nextNum'])

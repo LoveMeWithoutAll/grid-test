@@ -20,25 +20,25 @@ import { mapMutations } from 'vuex'
 import * as types from '@/vuex/mutation_types'
 
 export default {
-computed: {
-  ...mapFields(['numbers', 'nextNum'])
-},
-methods: {
-  ...mapMutations({increaseNum: types.NEXT_NUM}),
-  sqrt: (v) => Math.sqrt(v.length),
-  getValue (idx, kdx) {
-    return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
+  computed: {
+    ...mapFields(['numbers', 'nextNum'])
   },
-  checkIt (v) {
-    console.log(v)
-    if (this.nextNum === v) {
-      console.log('right')
-      this.increaseNum()
-    } else {
-      console.log('fail..')
+  methods: {
+    ...mapMutations({increaseNum: types.NEXT_NUM}),
+    sqrt: (v) => Math.sqrt(v.length),
+    getValue (idx, kdx) {
+      return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
+    },
+    checkIt (v) {
+      console.log(v)
+      if (this.nextNum === v) {
+        console.log('right')
+        this.increaseNum()
+      } else {
+        console.log('fail..')
+      }
     }
   }
-}
 }
 </script>
 
