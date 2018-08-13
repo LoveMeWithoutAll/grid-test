@@ -9,6 +9,7 @@
         <v-spacer class="mb-4"></v-spacer>
         <h3>Next</h3>
         <h3 class="display-2">{{ nextNum }}</h3>
+        <v-spacer class="mb-4"></v-spacer>
         <timer></timer>
       </v-layout>
     </v-slide-y-transition>
