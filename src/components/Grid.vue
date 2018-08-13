@@ -21,7 +21,7 @@ import * as types from '@/vuex/mutation_types'
 
 export default {
   computed: {
-    ...mapFields(['numbers', 'nextNum'])
+    ...mapFields(['numbers', 'nextNum', 'started'])
   },
   methods: {
     ...mapMutations({increaseNum: types.NEXT_NUM}),
@@ -30,13 +30,8 @@ export default {
       return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
     },
     checkIt (v) {
-      console.log(v)
-      if (this.nextNum === v) {
-        console.log('right')
-        this.increaseNum()
-      } else {
-        console.log('fail..')
-      }
+      if (!this.started) return
+      if (this.nextNum === v) this.increaseNum()
     }
   }
 }

@@ -3,12 +3,6 @@ import * as types from './mutation_types'
 import { GRID_SIZE } from '@/config'
 import { shuffleArray } from '@/services'
 
-let stop = (state) => {
-  state.minutes = 1
-  state.seconds = 0
-  state.started = false
-}
-
 export default {
   updateField,
   [types.NEXT_NUM] (state) {
@@ -22,13 +16,17 @@ export default {
     state.started = true
     setInterval(() => {
       if (state.seconds === 0) {
-        stop()
+        state.minutes = 1
+        state.seconds = 0
+        state.started = false
         return
       }
       state.seconds--
     }, 1000)
   },
   [types.STOP] (state) {
-    stop(state)
+    state.minutes = 1
+    state.seconds = 0
+    state.started = false
   }
 }
