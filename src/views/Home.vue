@@ -5,19 +5,7 @@
         <h1 class="display-3 mb-2">Grid test</h1>
         <h2 class="title mb-2">concentration training</h2>        
         <blockquote class="mb-4">First, find 0 . Then, next.</blockquote>
-        <table>
-          <tbody>
-            <tr v-for="idx in sqrt(numbers)" :key="idx">
-              <td v-for="kdx in sqrt(numbers)" :key="kdx">
-                <v-card>
-                  <v-card-text class="text-xs-center" @click="checkIt(getValue(idx, kdx))">
-                    {{ getValue(idx, kdx) }}
-                  </v-card-text>
-                </v-card>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <grid></grid>
         <v-spacer class="mb-4"></v-spacer>
         <h3>Next</h3>
         <h3 class="display-2">{{ nextNum }}</h3>
@@ -28,28 +16,14 @@
 
 <script>
 import { mapFields } from 'vuex-map-fields'
-import { mapMutations } from 'vuex'
-import * as types from '@/vuex/mutation_types'
+import Grid from '@/components/Grid'
 
 export default {
-  computed: {
-    ...mapFields(['numbers', 'nextNum'])
+  components: {
+    Grid
   },
-  methods: {
-    ...mapMutations({increaseNum: types.NEXT_NUM}),
-    sqrt: (v) => Math.sqrt(v.length),
-    getValue (idx, kdx) {
-      return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
-    },
-    checkIt (v) {
-      console.log(v)
-      if (this.nextNum === v) {
-        console.log('right')
-        this.increaseNum()
-      } else {
-        console.log('fail..')
-      }
-    }
+  computed: {
+    ...mapFields(['nextNum'])
   }
 }
 </script>

@@ -4,7 +4,7 @@
       <router-view/>
     </v-content>
     <v-footer app>
-      <span>&copy; 20178. YoungSeon Ahn</span>
+      <span>&copy; 2018. YoungSeon Ahn</span>
     </v-footer>
   </v-app>
 </template>
