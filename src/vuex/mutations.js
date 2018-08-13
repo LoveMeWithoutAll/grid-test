@@ -1,5 +1,7 @@
 import { updateField } from 'vuex-map-fields'
 import * as types from './mutation_types'
+import { GRID_SIZE } from '@/config'
+import { shuffleArray } from '@/services'
 
 let stop = (state) => {
   state.minutes = 1
@@ -13,6 +15,8 @@ export default {
     state.nextNum++
   },
   [types.START] (state) {
+    state.numbers = shuffleArray(GRID_SIZE)
+    state.nextNum = 0
     state.minutes = 0
     state.seconds = 60
     state.started = true

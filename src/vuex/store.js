@@ -3,14 +3,12 @@ import Vuex from 'vuex'
 import getters from './getters'
 import mutations from './mutations'
 import { GRID_SIZE, TEST_TIME } from '@/config'
+import { shuffleArray } from '@/services'
 
 Vue.use(Vuex)
 
-const inputNumber = GRID_SIZE
-const numArr = Array.from(Array(inputNumber * inputNumber).keys()).sort(() => 0.5 - Math.random())
-
 const state = {
-  numbers: numArr,
+  numbers: shuffleArray(GRID_SIZE),
   nextNum: 0,
   minutes: TEST_TIME,
   seconds: 0,
