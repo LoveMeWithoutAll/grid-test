@@ -36,6 +36,7 @@ export default {
   },
   [types.CLEAR] (state) {
     toggleStop(state)
+    state.timestamp = new Date().getTime()
     state.clear = true
   }
 }

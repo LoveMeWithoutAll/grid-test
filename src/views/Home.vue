@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
+    <v-slide-y-transition mode="out-in" align-content-center="true">
       <v-layout column align-center>
         <h1 class="display-3 mb-2">Grid test</h1>
         <h2 class="title mb-2">concentration training</h2>
@@ -13,7 +13,10 @@
           <h3>Next</h3>
           <h3 class="display-2">{{ nextNum }}</h3>
         </div>
-        <h3 v-if="clear" class="display-2">Clear!</h3>
+        <div v-if="clear">
+          <h3 class="display-2">Clear! Relax with kittens!</h3>
+          <kitten></kitten>
+        </div>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
@@ -23,11 +26,13 @@
 import { mapFields } from 'vuex-map-fields'
 import Grid from '@/components/Grid'
 import Timer from '@/components/Timer'
+import Kitten from '@/components/Kitten'
 
 export default {
   components: {
     Grid,
-    Timer
+    Timer,
+    Kitten
   },
   computed: {
     ...mapFields(['nextNum', 'clear'])

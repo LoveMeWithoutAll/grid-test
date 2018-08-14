@@ -14,7 +14,8 @@ const state = {
   seconds: 0,
   started: false,
   interval: null,
-  clear: false
+  clear: false,
+  timestamp: 0
 }
 
 export default new Vuex.Store({
