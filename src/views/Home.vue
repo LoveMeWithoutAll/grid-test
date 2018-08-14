@@ -9,8 +9,11 @@
         <v-spacer class="mb-4"></v-spacer>
         <grid></grid>
         <v-spacer class="mb-4"></v-spacer>
-        <h3>Next</h3>
-        <h3 class="display-2">{{ nextNum }}</h3>
+        <div v-if="!clear">
+          <h3>Next</h3>
+          <h3 class="display-2">{{ nextNum }}</h3>
+        </div>
+        <h3 v-if="clear" class="display-2">Clear!</h3>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
@@ -27,7 +30,7 @@ export default {
     Timer
   },
   computed: {
-    ...mapFields(['nextNum'])
+    ...mapFields(['nextNum', 'clear'])
   }
 }
 </script>
