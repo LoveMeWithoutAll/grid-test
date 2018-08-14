@@ -24,15 +24,12 @@ export default {
   },
   [types.START] (state) {
     state.numbers = shuffleArray(GRID_SIZE)
-    state.nextNum = 0
+    state.nextNum = 1
     state.minutes = 0
     state.seconds = 60
     state.started = true
     state.clear = false
     state.interval = setInterval(() => tick(state), 1000)
-  },
-  [types.STOP] (state) {
-    toggleStop(state)
   },
   [types.CLEAR] (state) {
     toggleStop(state)
