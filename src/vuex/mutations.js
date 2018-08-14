@@ -3,6 +3,20 @@ import * as types from './mutation_types'
 import { GRID_SIZE } from '@/config'
 import { shuffleArray } from '@/services'
 
+function toggleStop (state) {
+  state.started = false
+  clearInterval(state.interval)
+}
+
+function tick (state) {
+  if (state.seconds === 0) {
+    toggleStop(state)
+    clearInterval(state.interval)
+    return
+  }
+  state.seconds--
+}
+
 export default {
   updateField,
   [types.NEXT_NUM] (state) {
@@ -14,19 +28,9 @@ export default {
     state.minutes = 0
     state.seconds = 60
     state.started = true
-    setInterval(() => {
-      if (state.seconds === 0) {
-        state.minutes = 1
-        state.seconds = 0
-        state.started = false
-        return
-      }
-      state.seconds--
-    }, 1000)
+    state.interval = setInterval(() => tick(state), 1000)
   },
   [types.STOP] (state) {
-    state.minutes = 1
-    state.seconds = 0
-    state.started = false
+    toggleStop(state)
   }
 }
