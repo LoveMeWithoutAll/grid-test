@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 const state = {
   numbers: shuffleArray(GRID_SIZE),
-  nextNum: 0,
+  nextNum: 1,
   minutes: TEST_TIME,
   seconds: 0,
   started: false,

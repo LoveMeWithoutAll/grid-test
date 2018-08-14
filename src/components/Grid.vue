@@ -37,7 +37,7 @@ export default {
       if (this.nextNum === this.getValue(idx, kdx)) {
         this.$refs.numCards[this.getIndex(idx, kdx)].dark = true
         this.increaseNum()
-        if (this.nextNum === this.numbers.length) this.clear()
+        if (this.nextNum > this.numbers.length) this.clear()
       }
     }
   }

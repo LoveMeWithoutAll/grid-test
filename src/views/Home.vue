@@ -4,7 +4,7 @@
       <v-layout column align-center>
         <h1 class="display-3 mb-2">Grid test</h1>
         <h2 class="title mb-2">concentration training</h2>
-        <blockquote class="mb-2">First, find 0 . Then, next.</blockquote>
+        <blockquote class="mb-2">First, find 1 . Then, next.</blockquote>
         <timer></timer>
         <div v-if="!clear && started" class="text-xs-center">
           <h3>Next</h3>

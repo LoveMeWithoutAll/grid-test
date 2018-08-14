@@ -24,7 +24,7 @@ export default {
   },
   [types.START] (state) {
     state.numbers = shuffleArray(GRID_SIZE)
-    state.nextNum = 0
+    state.nextNum = 1
     state.minutes = 0
     state.seconds = 60
     state.started = true
