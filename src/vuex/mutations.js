@@ -3,10 +3,18 @@ import * as types from './mutation_types'
 import { GRID_SIZE } from '@/config'
 import { shuffleArray } from '@/services'
 
-let stop = (state) => {
-  state.minutes = 1
-  state.seconds = 0
+function toggleStop (state) {
   state.started = false
+  clearInterval(state.interval)
+}
+
+function tick (state) {
+  if (state.seconds === 0) {
+    toggleStop(state)
+    clearInterval(state.interval)
+    return
+  }
+  state.seconds--
 }
 
 export default {
@@ -20,15 +28,14 @@ export default {
     state.minutes = 0
     state.seconds = 60
     state.started = true
-    setInterval(() => {
-      if (state.seconds === 0) {
-        stop()
-        return
-      }
-      state.seconds--
-    }, 1000)
+    state.clear = false
+    state.interval = setInterval(() => tick(state), 1000)
   },
   [types.STOP] (state) {
-    stop(state)
+    toggleStop(state)
+  },
+  [types.CLEAR] (state) {
+    toggleStop(state)
+    state.clear = true
   }
 }

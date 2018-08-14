@@ -3,8 +3,8 @@
     <tbody>
       <tr v-for="idx in sqrt(numbers)" :key="idx">
         <td v-for="kdx in sqrt(numbers)" :key="kdx">
-          <v-card>
-            <v-card-text class="text-xs-center" @click="checkIt(getValue(idx, kdx))">
+          <v-card :hover="true" ref="numCards">
+            <v-card-text class="text-xs-center" @click="checkIt(idx, kdx)">
               {{ getValue(idx, kdx) }}
             </v-card-text>
           </v-card>
@@ -21,21 +21,23 @@ import * as types from '@/vuex/mutation_types'
 
 export default {
   computed: {
-    ...mapFields(['numbers', 'nextNum'])
+    ...mapFields(['numbers', 'nextNum', 'started'])
   },
   methods: {
-    ...mapMutations({increaseNum: types.NEXT_NUM}),
+    ...mapMutations({increaseNum: types.NEXT_NUM, clear: types.CLEAR}),
     sqrt: (v) => Math.sqrt(v.length),
-    getValue (idx, kdx) {
-      return this.numbers[(this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx]
+    getIndex (idx, kdx) {
+      return (this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx
     },
-    checkIt (v) {
-      console.log(v)
-      if (this.nextNum === v) {
-        console.log('right')
+    getValue (idx, kdx) {
+      return this.numbers[this.getIndex(idx, kdx)]
+    },
+    checkIt (idx, kdx) {
+      if (!this.started) return
+      if (this.nextNum === this.getValue(idx, kdx)) {
+        this.$refs.numCards[this.getIndex(idx, kdx)].dark = true
         this.increaseNum()
-      } else {
-        console.log('fail..')
+        if (this.nextNum === this.numbers.length) this.clear()
       }
     }
   }
