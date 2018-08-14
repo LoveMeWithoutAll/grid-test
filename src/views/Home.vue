@@ -6,6 +6,7 @@
         <h2 class="title mb-2">concentration training</h2>
         <blockquote class="mb-4">First, find 0 . Then, next.</blockquote>
         <timer></timer>
+        <timer-button></timer-button>
         <v-spacer class="mb-4"></v-spacer>
         <grid></grid>
         <v-spacer class="mb-4"></v-spacer>
@@ -26,13 +27,15 @@
 import { mapFields } from 'vuex-map-fields'
 import Grid from '@/components/Grid'
 import Timer from '@/components/Timer'
+import TimerButton from '@/components/TimerButton'
 import Kitten from '@/components/Kitten'
 
 export default {
   components: {
     Grid,
     Timer,
-    Kitten
+    Kitten,
+    TimerButton
   },
   computed: {
     ...mapFields(['nextNum', 'clear'])
