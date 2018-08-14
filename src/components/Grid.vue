@@ -24,7 +24,7 @@ export default {
     ...mapFields(['numbers', 'nextNum', 'started'])
   },
   methods: {
-    ...mapMutations({increaseNum: types.NEXT_NUM}),
+    ...mapMutations({increaseNum: types.NEXT_NUM, clear: types.CLEAR}),
     sqrt: (v) => Math.sqrt(v.length),
     getIndex (idx, kdx) {
       return (this.sqrt(this.numbers) * idx - this.sqrt(this.numbers) - 1) + kdx
@@ -37,6 +37,7 @@ export default {
       if (this.nextNum === this.getValue(idx, kdx)) {
         this.$refs.numCards[this.getIndex(idx, kdx)].dark = true
         this.increaseNum()
+        if (this.nextNum === this.numbers.length) this.clear()
       }
     }
   }
