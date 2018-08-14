@@ -13,7 +13,8 @@ const state = {
   minutes: TEST_TIME,
   seconds: 0,
   started: false,
-  interval: null
+  interval: null,
+  clear: false
 }
 
 export default new Vuex.Store({
