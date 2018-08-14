@@ -9,7 +9,7 @@
         <v-spacer class="mb-4"></v-spacer>
         <grid></grid>
         <v-spacer class="mb-4"></v-spacer>
-        <div v-if="!clear">
+        <div v-if="!clear" class="text-xs-center">
           <h3>Next</h3>
           <h3 class="display-2">{{ nextNum }}</h3>
         </div>
