@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-btn @click="start" :disabled="started" small>start</v-btn>
-    <v-btn @click="stop" :disabled="!started" small>stop</v-btn>
   </div>
 </template>
 
@@ -15,12 +14,9 @@ export default {
     ...mapFields({started: 'started'})
   },
   methods: {
-    ...mapMutations({startTimer: types.START, stopTimer: types.STOP}),
+    ...mapMutations({startTimer: types.START}),
     start () {
       this.startTimer()
-    },
-    stop () {
-      this.stopTimer()
     }
   }
 }

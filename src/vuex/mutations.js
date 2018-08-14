@@ -31,9 +31,6 @@ export default {
     state.clear = false
     state.interval = setInterval(() => tick(state), 1000)
   },
-  [types.STOP] (state) {
-    toggleStop(state)
-  },
   [types.CLEAR] (state) {
     toggleStop(state)
     state.timestamp = new Date().getTime()
