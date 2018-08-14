@@ -3,8 +3,8 @@
     <v-layout column align-center>
       <h2 class="title mb-2">{{ min | leftpad }} : {{ sec | leftpad }}</h2>
       <div>
-        <v-btn @click="start" :disabled="started">start</v-btn>
-        <v-btn @click="stop" :disabled="!started">stop</v-btn>
+        <v-btn @click="start" :disabled="started" small>start</v-btn>
+        <v-btn @click="stop" :disabled="!started" small>stop</v-btn>
       </div>
     </v-layout>
   </div>
