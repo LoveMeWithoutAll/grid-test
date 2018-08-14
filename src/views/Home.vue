@@ -12,12 +12,12 @@
         </div>
         <timer-button v-if="!started"></timer-button>
         <v-spacer class="mb-3"></v-spacer>
-        <grid></grid>
-        <v-spacer class="mb-4"></v-spacer>
         <div v-if="clear">
-          <h3 class="display-2">Clear! Relax with kittens!</h3>
+          <h3 class="display-1">Clear! Relax with kittens!</h3>
           <kitten></kitten>
         </div>
+        <v-spacer class="mb-1"></v-spacer>
+        <grid></grid>
       </v-layout>
     </v-slide-y-transition>
   </v-container>

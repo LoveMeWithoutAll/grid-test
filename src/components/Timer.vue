@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout column align-center>
-      <h2 class="title mb-2">{{ min | leftpad }} : {{ sec | leftpad }}</h2>      
+      <h2 class="title mb-2">{{ min | leftpad }} : {{ sec | leftpad }}</h2>
     </v-layout>
   </div>
 </template>
