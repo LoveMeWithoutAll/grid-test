@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       headers: [
-        {text: 'Ranking'},
+        {text: 'Ranking', value: 'rank'},
         {text: 'Time left', value: 'timeLeft'},
         {text: 'Name', value: 'name'},
         {text: 'Date', value: 'date'}
