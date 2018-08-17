@@ -15,6 +15,7 @@
         <div v-if="clear">
           <h3 class="display-1">Clear! Relax with kittens!</h3>
           <kitten></kitten>
+          <ranking-input></ranking-input>
         </div>
         <v-spacer class="mb-1"></v-spacer>
         <grid></grid>
@@ -29,13 +30,15 @@ import Grid from '@/components/Grid'
 import Timer from '@/components/Timer'
 import TimerButton from '@/components/TimerButton'
 import Kitten from '@/components/Kitten'
+import RankingInput from '@/components/RankingInput'
 
 export default {
   components: {
     Grid,
     Timer,
     Kitten,
-    TimerButton
+    TimerButton,
+    RankingInput
   },
   computed: {
     ...mapFields(['nextNum', 'clear', 'started'])
