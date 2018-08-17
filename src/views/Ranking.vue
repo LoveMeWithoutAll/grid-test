@@ -9,27 +9,22 @@
       <td class="text-xs-middle">{{ props.index + 1}}</td>
       <td class="text-xs-middle">{{ props.item.timeLeft }} sec</td>
       <td class="text-xs-middle">{{ props.item.name }}</td>
-      <td class="text-xs-middle">{{ props.item.date.toDate() }}</td>
+      <td class="text-xs-middle">{{ new Date(props.item.date) }}</td>
     </template>
   </v-data-table>
 </template>
 
 <script>
-import Firebase from 'firebase'
-import { FIREBASE_CONFIG } from '@/config'
-
-const firebaseApp = Firebase.initializeApp(FIREBASE_CONFIG)
-const firestore = firebaseApp.firestore()
-firestore.settings({timestampsInSnapshots: true})
+import { firestore } from '@/firebase/firestore'
 
 export default {
   data () {
     return {
       headers: [
-        {text: 'Ranking', value: 'rank'},
-        {text: 'Time left', value: 'timeLeft'},
-        {text: 'Name', value: 'name'},
-        {text: 'Date', value: 'date'}
+        {text: 'Ranking', value: 'rank', sortable: false},
+        {text: 'Time left', value: 'timeLeft', sortable: false},
+        {text: 'Name', value: 'name', sortable: false},
+        {text: 'Date', value: 'date', sortable: false}
       ]
     }
   },
