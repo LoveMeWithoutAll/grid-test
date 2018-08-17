@@ -5,7 +5,12 @@
       <router-view/>
     </v-content>
     <v-footer app>
-      <span>&copy; 2018. YoungSeon Ahn</span>
+      <v-layout align-center justify-space-between>
+        <span>&copy; 2018. YoungSeon Ahn</span>
+        <router-link to="/ranking">
+          <v-btn color="gray" outline right flat small>SHOW RANKING</v-btn>
+        </router-link>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
@@ -20,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+a {
+  color: #f5f5f5;
+}
+</style>
