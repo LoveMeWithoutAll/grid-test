@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     ...mapFields(['seconds'])
-  },  
+  },
   methods: {
     saveRecord () {
       firestore.collection('record').doc(new Date().getTime().toString()).set({
