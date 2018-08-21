@@ -3,8 +3,8 @@
     <tbody>
       <tr v-for="idx in sqrt(numbers)" :key="idx">
         <td v-for="kdx in sqrt(numbers)" :key="kdx">
-          <v-card :hover="true" ref="numCards">
-            <v-card-text class="text-xs-center" @click="checkIt(idx, kdx)">
+          <v-card :hover="true" ref="numCards" class="iphoneSeOnly">
+            <v-card-text class="text-xs-center iphoneSeOnly" @click="checkIt(idx, kdx)">
               {{ getValue(idx, kdx) }}
             </v-card-text>
           </v-card>
@@ -44,6 +44,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+@media only screen and (min-width: 200px) and (max-width: 320px) {
+  .iphoneSeOnly {
+    width: 40px;
+    height: 44.16px;
+    font-size: 13px;
+  }
+}
 </style>
