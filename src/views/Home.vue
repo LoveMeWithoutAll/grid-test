@@ -18,7 +18,8 @@
           <ranking-input></ranking-input>
         </div>
         <v-spacer class="mb-1"></v-spacer>
-        <grid></grid>
+        <grid class="mb-4"></grid>
+        <restart-button v-if="started"></restart-button>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
@@ -31,6 +32,7 @@ import Timer from '@/components/Timer'
 import TimerButton from '@/components/TimerButton'
 import Kitten from '@/components/Kitten'
 import RankingInput from '@/components/RankingInput'
+import RestartButton from '@/components/RestartButton'
 
 export default {
   components: {
@@ -38,7 +40,8 @@ export default {
     Timer,
     Kitten,
     TimerButton,
-    RankingInput
+    RankingInput,
+    RestartButton
   },
   computed: {
     ...mapFields(['nextNum', 'clear', 'started'])
