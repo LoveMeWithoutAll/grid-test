@@ -3,8 +3,11 @@
     :headers="headers"
     :items="recordByGroup"
     hide-actions
+    :loading="record.length === 0"
+    no-data-text = "Now loading"
     class="elevation-1"
   >
+    <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
     <template slot="items" slot-scope="props">
       <td class="text-xs-middle">{{ props.index + 1}}</td>
       <td class="text-xs-middle">{{ props.item.timeLeft }} sec</td>
