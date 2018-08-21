@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="record"
+    :items="recordByGroup"
     hide-actions
     class="elevation-1"
   >
@@ -16,6 +16,7 @@
 
 <script>
 import { firestore } from '@/firebase/firestore'
+import _ from 'lodash'
 
 export default {
   data () {
@@ -26,6 +27,22 @@ export default {
         {text: 'Name', value: 'name', sortable: false},
         {text: 'Date', value: 'date', sortable: false}
       ]
+    }
+  },
+  computed: {
+    recordByGroup () {
+      let result = _.chain(this.record)
+        .groupBy('name')
+        .map((v, i) => {
+          return {
+            '.key': _.head(v)['.key'],
+            date: _.head(v).date,
+            name: i,
+            timeLeft: _.head(v).timeLeft
+          }
+        })
+        .value()
+      return result
     }
   },
   firestore () {
