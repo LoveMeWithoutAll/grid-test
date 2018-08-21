@@ -3,13 +3,15 @@
     :headers="headers"
     :items="recordByGroup"
     hide-actions
+    :loading="record.length === 0"
+    no-data-text = "Now loading"
     class="elevation-1"
   >
+    <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
     <template slot="items" slot-scope="props">
       <td class="text-xs-middle">{{ props.index + 1}}</td>
       <td class="text-xs-middle">{{ props.item.timeLeft }} sec</td>
       <td class="text-xs-middle">{{ props.item.name }}</td>
-      <td class="text-xs-middle">{{ new Date(props.item.date) }}</td>
     </template>
   </v-data-table>
 </template>
@@ -24,8 +26,7 @@ export default {
       headers: [
         {text: 'Ranking', value: 'rank', sortable: false},
         {text: 'Time left', value: 'timeLeft', sortable: false},
-        {text: 'Name', value: 'name', sortable: false},
-        {text: 'Date', value: 'date', sortable: false}
+        {text: 'Name', value: 'name', sortable: false}
       ]
     }
   },
@@ -36,11 +37,19 @@ export default {
         .map((v, i) => {
           return {
             '.key': _.head(v)['.key'],
-            date: _.head(v).date,
             name: i,
             timeLeft: _.head(v).timeLeft
           }
         })
+        .groupBy('timeLeft')
+        .map((v, i) => {
+          return {
+            '.key': _.head(v)['.key'],
+            name: _.map(v, 'name').join(' & '),
+            timeLeft: i
+          }
+        })
+        .reverse()
         .value()
       return result
     }
