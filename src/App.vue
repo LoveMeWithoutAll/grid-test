@@ -20,9 +20,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-a {
-  color: #f5f5f5;
-}
-</style>
