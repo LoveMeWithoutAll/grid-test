@@ -4,24 +4,19 @@
       <GithubCorners></GithubCorners>
       <router-view/>
     </v-content>
-    <v-footer app>
-      <v-layout align-center justify-space-between>
-        <span>&copy; 2018. YoungSeon Ahn</span>
-        <footer-button></footer-button>
-      </v-layout>
-    </v-footer>
+    <footer-view></footer-view>
   </v-app>
 </template>
 
 <script>
 import GithubCorners from '@/views/GithubCorners'
-import FooterButton from '@/components/FooterButton'
+import FooterView from '@/views/FooterView'
 
 export default {
   name: 'App',
   components: {
     GithubCorners,
-    FooterButton
+    FooterView
   }
 }
 </script>
