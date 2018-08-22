@@ -4,24 +4,19 @@
       <GithubCorners></GithubCorners>
       <router-view/>
     </v-content>
-    <v-footer app>
-      <v-layout align-center justify-space-between>
-        <span>&copy; 2018. YoungSeon Ahn</span>
-        <router-link to="/ranking">
-          <v-btn color="gray" outline right flat small>SHOW RANKING</v-btn>
-        </router-link>
-      </v-layout>
-    </v-footer>
+    <footer-view></footer-view>
   </v-app>
 </template>
 
 <script>
 import GithubCorners from '@/views/GithubCorners'
+import FooterView from '@/views/FooterView'
 
 export default {
   name: 'App',
   components: {
-    GithubCorners
+    GithubCorners,
+    FooterView
   }
 }
 </script>
