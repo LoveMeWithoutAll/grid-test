@@ -36,4 +36,4 @@ Changes and improvements are more than welcome! Feel free to fork and open a pul
 
 License
 -------------
-This game is licensed under the [MIT license](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt).
+This game is licensed under the MIT license.
