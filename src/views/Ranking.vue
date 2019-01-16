@@ -24,9 +24,9 @@ export default {
   data () {
     return {
       headers: [
-        {text: 'Ranking', value: 'rank', sortable: false},
-        {text: 'Time left', value: 'timeLeft', sortable: false},
-        {text: 'Name', value: 'name', sortable: false}
+        { text: 'Ranking', value: 'rank', sortable: false },
+        { text: 'Time left', value: 'timeLeft', sortable: false },
+        { text: 'Name', value: 'name', sortable: false }
       ]
     }
   },

@@ -27,7 +27,7 @@ export default {
       if (!this.showRanking) this.restart()
       this.showRanking = !this.showRanking
     },
-    ...mapMutations({start: types.START, clear: types.CLEAR}),
+    ...mapMutations({ start: types.START, clear: types.CLEAR }),
     restart () {
       this.clear()
       this.start()

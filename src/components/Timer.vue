@@ -11,7 +11,7 @@ import { mapFields } from 'vuex-map-fields'
 
 export default {
   computed: {
-    ...mapFields({min: 'minutes', sec: 'seconds'})
+    ...mapFields({ min: 'minutes', sec: 'seconds' })
   },
   filters: {
     leftpad (val) {
