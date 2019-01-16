@@ -11,10 +11,10 @@ import * as types from '@/vuex/mutation_types'
 
 export default {
   computed: {
-    ...mapFields({started: 'started'})
+    ...mapFields({ started: 'started' })
   },
   methods: {
-    ...mapMutations({startTimer: types.START}),
+    ...mapMutations({ startTimer: types.START }),
     start () {
       this.startTimer()
     }
