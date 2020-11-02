@@ -1,11 +1,6 @@
 <template>
   <div>
-    <router-link to="/" v-if="!showRanking">
-      <v-btn color="gray" @click="changeBtn" outline right flat small>START GAME</v-btn>
-    </router-link>
-    <router-link to="/ranking" v-if="showRanking">
-      <v-btn color="gray" @click="changeBtn" outline right flat small>SHOW RANKING</v-btn>
-    </router-link>
+    <v-btn color="gray" @click="clickButton" outline right flat small>{{ buttonTitle }}</v-btn>
   </div>
 </template>
 
@@ -14,6 +9,11 @@ import { mapMutations } from 'vuex'
 import * as types from '@/vuex/mutation_types'
 
 export default {
+  computed: {
+    buttonTitle () {
+      return this.showRanking ? 'SHOW RANKING' : 'START GAME'
+    }
+  },
   data () {
     return {
       showRanking: true
@@ -23,6 +23,20 @@ export default {
     this.showRanking = document.location.hash.split('#/')[1] === ''
   },
   methods: {
+    clickButton () {
+      if (this.showRanking) {
+        this.goToRanking()
+      } else {
+        this.goToGame()
+      }
+      this.changeBtn()
+    },
+    goToGame () {
+      this.$router.push('/')
+    },
+    goToRanking () {
+      this.$router.push('/ranking')
+    },
     changeBtn () {
       if (!this.showRanking) this.restart()
       this.showRanking = !this.showRanking

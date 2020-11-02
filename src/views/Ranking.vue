@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     recordByGroup () {
-      let result = _.chain(this.record)
+      const result = _.chain(this.record)
         .groupBy('name')
         .map((v, i) => {
           return {
